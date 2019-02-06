@@ -1,4 +1,10 @@
-console.log('hello');
+let express = require('express');
+let PORT = 5000;
+let app = express();
+
+app.get('/quotes',(req, res) => {
+    res.send(quotes_data);
+});
 
 let quotes_data = [
     { quote: 'I\'m not going to school just for the academics - I wanted to share ideas, to be around people who are passionate about learning.', author: 'Emma Watson' },
@@ -6,15 +12,7 @@ let quotes_data = [
     { quote: 'Intelligence plus character-that is the goal of true education.', author: 'Martin Luther King, Jr.' }
 ];
 
-let express = require('express');
-
-let app = express();
-
-app.get('/quotes', function (req, res) {
-    res.send(quotes_data);
+app.listen(PORT, () => {
+    console.log('running on port', PORT);
 });
-
-app.listen(5000, function() {
-    console.log('Running on port 5000');
-})
 
