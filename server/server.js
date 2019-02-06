@@ -1,6 +1,9 @@
 let express = require('express');
+
 let PORT = 5000;
 let app = express();
+
+app.use(express.static('server/public'));
 
 app.get('/quotes',(req, res) => {
     res.send(quotes_data);
